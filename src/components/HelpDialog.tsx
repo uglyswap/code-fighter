@@ -92,7 +92,7 @@ Issues that do not meet these requirements will be closed and may need to be res
 <!-- What actually happened? -->
 
 ## System Information
-- Code Fighter Version: ${debugInfo.CodeFighterVersion}
+- Code Fighter Version: ${debugInfo.codeFighterVersion}
 - Platform: ${debugInfo.platform}
 - Architecture: ${debugInfo.architecture}
 - Node Version: ${debugInfo.nodeVersion || "n/a"}
@@ -340,7 +340,7 @@ Session ID: ${sessionId}
             <div className="border rounded-md p-3">
               <h3 className="font-medium mb-2">System Information</h3>
               <div className="text-sm bg-slate-50 dark:bg-slate-900 rounded p-2 max-h-32 overflow-y-auto">
-                <p>CodeFighter Version: {chatLogsData.debugInfo.CodeFighterVersion}</p>
+                <p>Code Fighter Version: {chatLogsData.debugInfo.codeFighterVersion}</p>
                 <p>Platform: {chatLogsData.debugInfo.platform}</p>
                 <p>Architecture: {chatLogsData.debugInfo.architecture}</p>
                 <p>
