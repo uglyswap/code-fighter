@@ -51,10 +51,10 @@ export const DyadCodeSearchResult: React.FC<DyadCodeSearchResultProps> = ({
     >
       {/* Top-left label badge */}
       <div
-        className="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold text-purple-600 bg-white dark:bg-zinc-900"
+        className="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold text-blue-600 bg-white dark:bg-zinc-900"
         style={{ zIndex: 1 }}
       >
-        <FileCode size={16} className="text-purple-600" />
+        <FileCode size={16} className="text-blue-600" />
         <span>Code Search Result</span>
       </div>
 

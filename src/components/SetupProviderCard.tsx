@@ -97,11 +97,11 @@ function getVariantStyles(variant: SetupProviderVariant) {
     case "Code Fighter":
       return {
         container:
-          "bg-primary/10 border-primary/50 dark:bg-violet-800/50 dark:border-violet-700 hover:bg-violet-100 dark:hover:bg-violet-900/70",
-        iconWrapper: "bg-primary/5 dark:bg-violet-800",
-        titleColor: "text-violet-800 dark:text-violet-300",
-        subtitleColor: "text-violet-600 dark:text-violet-400",
-        chevronColor: "text-violet-600 dark:text-violet-400",
+          "bg-primary/10 border-primary/50 dark:bg-blue-800/50 dark:border-blue-700 hover:bg-blue-100 dark:hover:bg-blue-900/70",
+        iconWrapper: "bg-primary/5 dark:bg-blue-800",
+        titleColor: "text-blue-800 dark:text-blue-300",
+        subtitleColor: "text-blue-600 dark:text-blue-400",
+        chevronColor: "text-blue-600 dark:text-blue-400",
       } as const;
   }
 }

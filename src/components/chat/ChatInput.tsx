@@ -366,7 +366,7 @@ export function ChatInput({ chatId }: { chatId?: number }) {
                     onClick={() => setShowTokenBar(!showTokenBar)}
                     variant="ghost"
                     className={`has-[>svg]:px-2 ${
-                      showTokenBar ? "text-purple-500 bg-purple-100" : ""
+                      showTokenBar ? "text-blue-500 bg-blue-100" : ""
                     }`}
                     size="sm"
                     data-testid="token-bar-toggle"

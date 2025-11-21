@@ -56,7 +56,7 @@ export const DyadSearchReplace: React.FC<DyadSearchReplaceProps> = ({
         <div className="flex items-center gap-2">
           <div className="flex items-center">
             <Search size={16} />
-            <span className="bg-purple-600 text-white text-xs px-1.5 py-0.5 rounded ml-1 font-medium">
+            <span className="bg-blue-600 text-white text-xs px-1.5 py-0.5 rounded ml-1 font-medium">
               Search & Replace
             </span>
           </div>

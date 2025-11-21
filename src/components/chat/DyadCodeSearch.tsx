@@ -19,8 +19,8 @@ export const DyadCodeSearch: React.FC<DyadCodeSearchProps> = ({
     <div className="bg-(--background-lightest) rounded-lg px-4 py-2 border my-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <FileCode size={16} className="text-purple-600" />
-          <div className="text-xs text-purple-600 font-medium">Code Search</div>
+          <FileCode size={16} className="text-blue-600" />
+          <div className="text-xs text-blue-600 font-medium">Code Search</div>
         </div>
       </div>
       <div className="text-sm italic text-gray-600 dark:text-gray-300 mt-2">

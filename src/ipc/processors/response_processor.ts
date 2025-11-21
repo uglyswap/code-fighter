@@ -491,8 +491,8 @@ export async function processFullResponseActions(
         changes.push(`executed ${dyadExecuteSqlQueries.length} SQL queries`);
 
       let message = chatSummary
-        ? `[dyad] ${chatSummary} - ${changes.join(", ")}`
-        : `[dyad] ${changes.join(", ")}`;
+        ? `[code-fighter] ${chatSummary} - ${changes.join(", ")}`
+        : `[code-fighter] ${changes.join(", ")}`;
       // Use chat summary, if provided, or default for commit message
       let commitHash = await gitCommit({
         path: appPath,
@@ -516,17 +516,17 @@ export async function processFullResponseActions(
         try {
           commitHash = await gitCommit({
             path: appPath,
-            message: message + " + extra files edited outside of Dyad",
+            message: message + " + extra files edited outside of Code Fighter",
             amend: true,
           });
           logger.log(
-            `Amend commit with changes outside of dyad: ${uncommittedFiles.join(", ")}`,
+            `Amend commit with changes outside of Code Fighter: ${uncommittedFiles.join(", ")}`,
           );
         } catch (error) {
           // Just log, but don't throw an error because the user can still
-          // commit these changes outside of Dyad if needed.
+          // commit these changes outside of Code Fighter if needed.
           logger.error(
-            `Failed to commit changes outside of dyad: ${uncommittedFiles.join(
+            `Failed to commit changes outside of Code Fighter: ${uncommittedFiles.join(
               ", ",
             )}`,
           );

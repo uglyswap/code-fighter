@@ -128,7 +128,7 @@ function ChatActivityList({ onSelect }: { onSelect?: () => void }) {
             </div>
             <div className="flex items-center gap-2">
               {inProgress ? (
-                <div className="flex items-center text-purple-600">
+                <div className="flex items-center text-blue-600">
                   <Loader2 size={16} className="animate-spin" />
                 </div>
               ) : (

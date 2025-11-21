@@ -474,7 +474,7 @@ export const OpenRouterSetupBanner = ({
       }}
       tabIndex={0}
       leadingIcon={
-        <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+        <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
       }
       title="Setup OpenRouter API Key"
       chip={

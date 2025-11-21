@@ -57,7 +57,7 @@ const CustomMenuItem = forwardRef<
         <span
           className={`px-2 py-0.5 text-xs font-medium rounded-md flex-shrink-0 ${
             isPrompt
-              ? "bg-purple-500 text-white"
+              ? "bg-blue-500 text-white"
               : isApp
                 ? "bg-primary text-primary-foreground"
                 : "bg-blue-600 text-white"

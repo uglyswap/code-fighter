@@ -44,7 +44,7 @@ export const DyadThink: React.FC<DyadThinkProps> = ({ children, node }) => {
   return (
     <div
       className={`relative bg-(--background-lightest) dark:bg-zinc-900 hover:bg-(--background-lighter) rounded-lg px-4 py-2 border my-2 cursor-pointer ${
-        inProgress ? "border-purple-500" : "border-border"
+        inProgress ? "border-blue-500" : "border-border"
       }`}
       onClick={() => setIsExpanded(!isExpanded)}
       role="button"
@@ -59,13 +59,13 @@ export const DyadThink: React.FC<DyadThinkProps> = ({ children, node }) => {
     >
       {/* Top-left label badge */}
       <div
-        className="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold text-purple-500 bg-white dark:bg-zinc-900"
+        className="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold text-blue-500 bg-white dark:bg-zinc-900"
         style={{ zIndex: 1 }}
       >
-        <Brain size={16} className="text-purple-500" />
+        <Brain size={16} className="text-blue-500" />
         <span>Thinking</span>
         {inProgress && (
-          <Loader size={14} className="ml-1 text-purple-500 animate-spin" />
+          <Loader size={14} className="ml-1 text-blue-500 animate-spin" />
         )}
       </div>
 

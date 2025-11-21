@@ -94,7 +94,7 @@ export function AiAccessBanner() {
         aria-hidden="true"
       />
       <div className="absolute inset-0 z-0 pointer-events-none dark:hidden">
-        <div className="absolute -top-8 -left-6 h-40 w-40 rounded-full blur-2xl bg-violet-200/40" />
+        <div className="absolute -top-8 -left-6 h-40 w-40 rounded-full blur-2xl bg-blue-200/40" />
         <div className="absolute -bottom-10 -right-6 h-48 w-48 rounded-full blur-3xl bg-sky-200/40" />
       </div>
       <div className="relative z-10 text-center flex flex-col items-center gap-0.5 sm:gap-1 md:gap-1.5 px-4 md:px-6 pr-6 md:pr-8">

@@ -97,7 +97,7 @@ export function TokenBar({ chatId }: TokenBarProps) {
                 />
                 {/* System prompt tokens */}
                 <div
-                  className="h-full bg-purple-400"
+                  className="h-full bg-blue-400"
                   style={{ width: `${systemPromptPercent}%` }}
                 />
                 {/* Input tokens */}
@@ -124,7 +124,7 @@ export function TokenBar({ chatId }: TokenBarProps) {
                 <span>Mentioned Apps</span>
                 <span>{mentionedAppsTokens.toLocaleString()}</span>
 
-                <Bot size={12} className="text-purple-500" />
+                <Bot size={12} className="text-blue-500" />
                 <span>System Prompt</span>
                 <span>{systemPromptTokens.toLocaleString()}</span>
 
