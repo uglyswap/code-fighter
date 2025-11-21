@@ -1,0 +1,18 @@
+Code Fighter
+Copyright 2025 Code Fighter Contributors
+
+This product is a derivative work based on Dyad.
+Original work Copyright 2025 Dyad Tech, Inc.
+
+Licensed under the Apache License, Version 2.0.
+
+MODIFICATIONS FROM ORIGINAL:
+- Rebranded from "Dyad" to "Code Fighter"
+- Removed API key requirement for Pro features
+- Removed credit limits
+- Enabled all Pro features by default
+- Changed deep link protocol from dyad:// to codefighter://
+
+ATTRIBUTION:
+This project is based on Dyad (https://github.com/dyad-sh/dyad)
+created by Will Chen and the Dyad team.

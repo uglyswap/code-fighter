@@ -11,56 +11,18 @@ const handle = createLoggedHandler(logger);
 const CONVERSION_RATIO = (10 * 3) / 2;
 
 export function registerProHandlers() {
-  // This method should try to avoid throwing errors because this is auxiliary
-  // information and isn't critical to using the app
+  // Code Fighter: Return unlimited credits without API call
   handle("get-user-budget", async (): Promise<UserBudgetInfo | null> => {
-    if (IS_TEST_BUILD) {
-      // Avoid spamming the API in E2E tests.
-      return null;
-    }
-    logger.info("Attempting to fetch user budget information.");
+    logger.info("Code Fighter: Returning unlimited credits.");
 
-    const settings = readSettings();
+    // Return unlimited credits - no API call needed
+    const nextMonth = new Date();
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
 
-    const apiKey = settings.providerSettings?.auto?.apiKey?.value;
-
-    if (!apiKey) {
-      logger.error("LLM Gateway API key (Dyad Pro) is not configured.");
-      return null;
-    }
-
-    const url = "https://llm-gateway.dyad.sh/user/info";
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    };
-
-    try {
-      // Use native fetch if available, otherwise node-fetch will be used via import
-      const response = await fetch(url, {
-        method: "GET",
-        headers: headers,
-      });
-
-      if (!response.ok) {
-        const errorBody = await response.text();
-        logger.error(
-          `Failed to fetch user budget. Status: ${response.status}. Body: ${errorBody}`,
-        );
-        return null;
-      }
-
-      const data = await response.json();
-      const userInfoData = data["user_info"];
-      logger.info("Successfully fetched user budget information.");
-      return UserBudgetInfoSchema.parse({
-        usedCredits: userInfoData["spend"] * CONVERSION_RATIO,
-        totalCredits: userInfoData["max_budget"] * CONVERSION_RATIO,
-        budgetResetDate: new Date(userInfoData["budget_reset_at"]),
-      });
-    } catch (error: any) {
-      logger.error(`Error fetching user budget: ${error.message}`, error);
-      return null;
-    }
+    return UserBudgetInfoSchema.parse({
+      usedCredits: 0,
+      totalCredits: 999999,
+      budgetResetDate: nextMonth,
+    });
   });
 }

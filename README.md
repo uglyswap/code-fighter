@@ -1,33 +1,62 @@
-# Dyad
+# Code Fighter
 
-Dyad is a local, open-source AI app builder. It's fast, private, and fully under your control — like Lovable, v0, or Bolt, but running right on your machine.
+Code Fighter is a local, open-source AI code editor with all Pro features unlocked. It's fast, private, and fully under your control.
 
-[![Image](https://github.com/user-attachments/assets/f6c83dfc-6ffd-4d32-93dd-4b9c46d17790)](https://dyad.sh/)
+## Features
 
-More info at: [https://dyad.sh/](https://dyad.sh/)
+- **Local**: Fast, private and no lock-in
+- **Bring your own keys**: Use your own AI API keys (OpenAI, Anthropic, Google, etc.)
+- **Cross-platform**: Mac, Windows, and Linux
+- **All Pro Features**: Turbo Edits V2, Smart Context, Web Search - all enabled by default
+- **No limits**: No API key required for Pro features, no credit limits
 
-## 🚀 Features
+## Pro Features Included
 
-- ⚡️ **Local**: Fast, private and no lock-in.
-- 🛠 **Bring your own keys**: Use your own AI API keys — no vendor lock-in.
-- 🖥️ **Cross-platform**: Easy to run on Mac or Windows.
+- **Turbo Edits V2**: Surgical code edits with search/replace
+- **Smart Context Mode**: Intelligent file context selection
+- **Web Search**: Search the web from within the editor
+- **Auto Provider**: Automatic provider selection
 
-## 📦 Download
+## Installation
 
-No sign-up required. Just download and go.
+```bash
+# Clone the repository
+git clone https://github.com/your-username/code-fighter.git
+cd code-fighter
 
-### [👉 Download for your platform](https://www.dyad.sh/#download)
+# Install dependencies
+npm install
 
-## 🤝 Community
+# Run in development mode
+npm start
 
-Join our growing community of AI app builders on **Reddit**: [r/dyadbuilders](https://www.reddit.com/r/dyadbuilders/) - share your projects and get help from the community!
+# Build for production
+npm run make
+```
 
-## 🛠️ Contributing
+## Configuration
 
-**Dyad** is open-source (Apache 2.0 licensed).
+You need to configure at least one AI provider API key to use Code Fighter:
 
-If you're interested in contributing to dyad, please read our [contributing](./CONTRIBUTING.md) doc.
+1. Go to Settings
+2. Select your preferred AI provider (OpenAI, Anthropic, Google, etc.)
+3. Enter your API key
+
+## Based on Dyad
+
+Code Fighter is a derivative work based on [Dyad](https://github.com/dyad-sh/dyad), an open-source project by Will Chen and the Dyad team.
+
+### Changes from Original
+
+- Rebranded to "Code Fighter"
+- All Pro features enabled by default
+- No API key requirement for Pro features
+- No credit limits
+- Deep link protocol changed to `codefighter://`
 
 ## License
 
-- All the code in this repo outside of is open-source and licensed under Apache 2.0 .
+Licensed under the Apache License, Version 2.0. See [LICENSE](./LICENSE) for details.
+
+Original work Copyright 2025 Dyad Tech, Inc.
+Modifications Copyright 2025 Code Fighter Contributors.

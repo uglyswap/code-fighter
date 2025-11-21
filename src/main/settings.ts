@@ -27,8 +27,13 @@ const DEFAULT_SETTINGS: UserSettings = {
   telemetryUserId: uuidv4(),
   hasRunBefore: false,
   experiments: {},
+  // Code Fighter: All Pro features enabled by default
+  enableDyadPro: true,
   enableProLazyEditsMode: true,
+  proLazyEditsMode: "v2",
   enableProSmartFilesContextMode: true,
+  enableProWebSearch: true,
+  proSmartContextOption: "balanced",
   selectedChatMode: "build",
   enableAutoFixProblems: false,
   enableAutoUpdate: true,

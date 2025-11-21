@@ -273,17 +273,19 @@ export const UserSettingsSchema = z.object({
 export type UserSettings = z.infer<typeof UserSettingsSchema>;
 
 export function isDyadProEnabled(settings: UserSettings): boolean {
-  return settings.enableDyadPro === true && hasDyadProKey(settings);
+  // Code Fighter: Pro always enabled
+  return true;
 }
 
 export function hasDyadProKey(settings: UserSettings): boolean {
-  return !!settings.providerSettings?.auto?.apiKey?.value;
+  // Code Fighter: No API key required
+  return true;
 }
 
 export function isTurboEditsV2Enabled(settings: UserSettings): boolean {
+  // Code Fighter: Turbo Edits V2 always available
   return Boolean(
-    isDyadProEnabled(settings) &&
-      settings.enableProLazyEditsMode === true &&
+    settings.enableProLazyEditsMode === true &&
       settings.proLazyEditsMode === "v2",
   );
 }

@@ -46,7 +46,7 @@ export async function refreshSupabaseToken(): Promise<void> {
   try {
     // Make request to Supabase refresh endpoint
     const response = await fetch(
-      "https://supabase-oauth.dyad.sh/api/connect-supabase/refresh",
+      "https://supabase-oauth.codefighter.dev/api/connect-supabase/refresh",
       {
         method: "POST",
         headers: {
@@ -242,7 +242,7 @@ export async function deploySupabaseFunctions({
     JSON.stringify({
       entrypoint_path: "index.ts",
       name: functionName,
-      // See: https://github.com/dyad-sh/dyad/issues/1010
+      // See: https://github.com/your-username/code-fighter/issues/1010
       verify_jwt: false,
     }),
   );

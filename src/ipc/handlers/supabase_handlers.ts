@@ -106,7 +106,7 @@ export function registerSupabaseHandlers() {
       // Simulate the deep link event
       safeSend(event.sender, "deep-link-received", {
         type: "supabase-oauth-return",
-        url: "https://supabase-oauth.dyad.sh/api/connect-supabase/login",
+        url: "https://supabase-oauth.codefighter.dev/api/connect-supabase/login",
       });
       logger.info(
         `Sent fake deep-link-received event for app ${appId} during testing.`,

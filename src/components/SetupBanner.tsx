@@ -117,7 +117,7 @@ export function SetupBanner() {
   const handleDyadProSetupClick = () => {
     posthog.capture("setup-flow:ai-provider-setup:dyad:click");
     IpcClient.getInstance().openExternalUrl(
-      "https://www.dyad.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=setup-banner",
+      "https://www.codefighter.dev/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=setup-banner",
     );
   };
 
@@ -343,13 +343,13 @@ export function SetupBanner() {
 
               <SetupProviderCard
                 className="mt-2"
-                variant="dyad"
+                variant="Code Fighter"
                 onClick={handleDyadProSetupClick}
                 tabIndex={isNodeSetupComplete ? 0 : -1}
                 leadingIcon={
                   <img src={logo} alt="Dyad Logo" className="w-6 h-6 mr-0.5" />
                 }
-                title="Setup Dyad Pro"
+                title="Setup Code Fighter Pro"
                 subtitle="Access all AI models with one plan"
                 chip={<>Recommended</>}
               />
@@ -393,7 +393,7 @@ function NodeJsHelpCallout() {
         <a
           onClick={() => {
             IpcClient.getInstance().openExternalUrl(
-              "https://www.dyad.sh/docs/help/nodejs",
+              "https://www.codefighter.dev/docs/help/nodejs",
             );
           }}
           className="text-blue-600 dark:text-blue-400 hover:underline font-medium"

@@ -64,10 +64,10 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
 
   // Use fetched data (or defaults for Dyad)
   const providerDisplayName = isDyad
-    ? "Dyad"
+    ? "Code Fighter"
     : (providerData?.name ?? "Unknown Provider");
   const providerWebsiteUrl = isDyad
-    ? "https://academy.dyad.sh/settings"
+    ? "https://academy.codefighter.dev/settings"
     : providerData?.websiteUrl;
   const hasFreeTier = isDyad ? false : providerData?.hasFreeTier;
   const envVarName = isDyad ? undefined : providerData?.envVarName;
@@ -174,7 +174,7 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
     }
   };
 
-  // --- Toggle Dyad Pro Handler ---
+  // --- Toggle Code Fighter Pro Handler ---
   const handleToggleDyadPro = async (enabled: boolean) => {
     setIsSaving(true);
     try {
@@ -182,7 +182,7 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
         enableDyadPro: enabled,
       });
     } catch (error: any) {
-      showError(`Error toggling Dyad Pro: ${error}`);
+      showError(`Error toggling Code Fighter Pro: ${error}`);
     } finally {
       setIsSaving(false);
     }
@@ -314,9 +314,9 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
         {isDyad && !settingsLoading && (
           <div className="mt-6 flex items-center justify-between p-4 bg-(--background-lightest) rounded-lg border">
             <div>
-              <h3 className="font-medium">Enable Dyad Pro</h3>
+              <h3 className="font-medium">Enable Code Fighter Pro</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Toggle to enable Dyad Pro
+                Toggle to enable Code Fighter Pro
               </p>
             </div>
             <Switch

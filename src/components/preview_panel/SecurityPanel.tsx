@@ -251,7 +251,7 @@ function SecurityHeader({
                 className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
                 onClick={() =>
                   IpcClient.getInstance().openExternalUrl(
-                    "https://www.dyad.sh/docs/guides/security-review",
+                    "https://www.codefighter.dev/docs/guides/security-review",
                   )
                 }
               >
