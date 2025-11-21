@@ -12,7 +12,7 @@ import type {
 } from "../ipc_types";
 import fs from "node:fs";
 import path from "node:path";
-import { getcodeFighterAppPath, getUserDataPath } from "../../paths/paths";
+import { getCodeFighterAppPath, getUserDataPath } from "../../paths/paths";
 import { ChildProcess, spawn } from "node:child_process";
 import git from "isomorphic-git";
 import { promises as fsPromises } from "node:fs";
@@ -558,7 +558,7 @@ export function registerAppHandlers() {
       params: CreateAppParams,
     ): Promise<{ app: any; chatId: number }> => {
       const appPath = params.name;
-      const fullAppPath = getcodeFighterAppPath(appPath);
+      const fullAppPath = getCodeFighterAppPath(appPath);
       if (fs.existsSync(fullAppPath)) {
         throw new Error(`App already exists at: ${fullAppPath}`);
       }
@@ -639,8 +639,8 @@ export function registerAppHandlers() {
         throw new Error("Original app not found.");
       }
 
-      const originalAppPath = getcodeFighterAppPath(originalApp.path);
-      const newAppPath = getcodeFighterAppPath(newAppName);
+      const originalAppPath = getCodeFighterAppPath(originalApp.path);
+      const newAppPath = getCodeFighterAppPath(newAppName);
 
       // 3. Copy the app folder
       try {
@@ -708,7 +708,7 @@ export function registerAppHandlers() {
     }
 
     // Get app files
-    const appPath = getcodeFighterAppPath(app.path);
+    const appPath = getCodeFighterAppPath(app.path);
     let files: string[] = [];
 
     try {
@@ -748,7 +748,7 @@ export function registerAppHandlers() {
     });
     return {
       apps: allApps,
-      appBasePath: getcodeFighterAppPath("$APP_BASE_PATH"),
+      appBasePath: getCodeFighterAppPath("$APP_BASE_PATH"),
     };
   });
 
@@ -763,7 +763,7 @@ export function registerAppHandlers() {
         throw new Error("App not found");
       }
 
-      const appPath = getcodeFighterAppPath(app.path);
+      const appPath = getCodeFighterAppPath(app.path);
       const fullPath = path.join(appPath, filePath);
 
       // Check if the path is within the app directory (security check)
@@ -820,7 +820,7 @@ export function registerAppHandlers() {
 
         logger.debug(`Starting app ${appId} in path ${app.path}`);
 
-        const appPath = getcodeFighterAppPath(app.path);
+        const appPath = getCodeFighterAppPath(app.path);
         try {
           // There may have been a previous run that left a process on port 32100.
           await cleanUpPort(32100);
@@ -935,7 +935,7 @@ export function registerAppHandlers() {
             throw new Error("App not found");
           }
 
-          const appPath = getcodeFighterAppPath(app.path);
+          const appPath = getCodeFighterAppPath(app.path);
 
           // Remove node_modules if requested
           if (removeNodeModules) {
@@ -1015,7 +1015,7 @@ export function registerAppHandlers() {
         throw new Error("App not found");
       }
 
-      const appPath = getcodeFighterAppPath(app.path);
+      const appPath = getCodeFighterAppPath(app.path);
       const fullPath = path.join(appPath, filePath);
 
       // Check if the path is within the app directory (security check)
@@ -1122,7 +1122,7 @@ export function registerAppHandlers() {
         }
 
         // Delete app files
-        const appPath = getcodeFighterAppPath(app.path);
+        const appPath = getCodeFighterAppPath(app.path);
         try {
           await fsPromises.rm(appPath, { recursive: true, force: true });
         } catch (error: any) {
@@ -1232,8 +1232,8 @@ export function registerAppHandlers() {
           }
         }
 
-        const oldAppPath = getcodeFighterAppPath(app.path);
-        const newAppPath = getcodeFighterAppPath(appPath);
+        const oldAppPath = getCodeFighterAppPath(app.path);
+        const newAppPath = getCodeFighterAppPath(appPath);
         // Only move files if needed
         if (newAppPath !== oldAppPath) {
           // Move app files
@@ -1352,7 +1352,7 @@ export function registerAppHandlers() {
     // Doing this last because it's the most time-consuming and the least important
     // in terms of resetting the app state.
     logger.log("removing all app files...");
-    const codeFighterAppPath = getcodeFighterAppPath(".");
+    const codeFighterAppPath = getCodeFighterAppPath(".");
     if (fs.existsSync(codeFighterAppPath)) {
       await fsPromises.rm(codeFighterAppPath, { recursive: true, force: true });
       // Recreate the base directory
@@ -1379,7 +1379,7 @@ export function registerAppHandlers() {
       throw new Error("App not found");
     }
 
-    const appPath = getcodeFighterAppPath(app.path);
+    const appPath = getCodeFighterAppPath(app.path);
 
     return withLock(appId, async () => {
       try {

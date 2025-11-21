@@ -53,10 +53,10 @@ async function getSystemDebugInfo({
 
   // Get Code Fighter version from package.json
   const packageJsonPath = path.resolve(__dirname, "..", "..", "package.json");
-  let code-fighterVersion = "unknown";
+  let codeFighterVersion = "unknown";
   try {
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-    code-fighterVersion = packageJson.version;
+    codeFighterVersion = packageJson.version;
   } catch (err) {
     console.error("Failed to read package.json:", err);
   }
@@ -107,7 +107,7 @@ async function getSystemDebugInfo({
       serializeModelForDebug(settings.selectedModel) || "unknown",
     telemetryConsent: settings.telemetryConsent || "unknown",
     telemetryUrl: "https://us.i.posthog.com", // Hardcoded from renderer.tsx
-    code-fighterVersion,
+    codeFighterVersion,
     platform: process.platform,
     architecture: arch(),
     logs,

@@ -22,7 +22,7 @@ import {
   SUPABASE_AVAILABLE_SYSTEM_PROMPT,
   SUPABASE_NOT_AVAILABLE_SYSTEM_PROMPT,
 } from "../../prompts/supabase_prompt";
-import { getcodeFighterAppPath } from "../../paths/paths";
+import { getCodeFighterAppPath } from "../../paths/paths";
 import { readSettings } from "../../main/settings";
 import type { ChatResponseEnd, ChatStreamParams } from "../ipc_types";
 import {
@@ -361,7 +361,7 @@ export function registerChatStreamHandlers() {
           let componentSnippet = "[component snippet not available]";
           try {
             const componentFileContent = await readFile(
-              path.join(getcodeFighterAppPath(chat.app.path), component.relativePath),
+              path.join(getCodeFighterAppPath(chat.app.path), component.relativePath),
               "utf8",
             );
             const lines = componentFileContent.split(/\r?\n/);
@@ -420,7 +420,7 @@ ${componentSnippet}
           content: "", // Start with empty content
           requestId: codeFighterRequestId,
           sourceCommitHash: await getCurrentCommitHash({
-            path: getcodeFighterAppPath(chat.app.path),
+            path: getCodeFighterAppPath(chat.app.path),
           }),
         })
         .returning();
@@ -465,7 +465,7 @@ ${componentSnippet}
         const { modelClient, isEngineEnabled, isSmartContextEnabled } =
           await getModelClient(settings.selectedModel, settings);
 
-        const appPath = getcodeFighterAppPath(updatedChat.app.path);
+        const appPath = getCodeFighterAppPath(updatedChat.app.path);
         // When we don't have smart context enabled, we
         // only include the selected components' files for codebase context.
         //
@@ -594,7 +594,7 @@ ${componentSnippet}
         }
 
         let systemPrompt = constructSystemPrompt({
-          aiRules: await readAiRules(getcodeFighterAppPath(updatedChat.app.path)),
+          aiRules: await readAiRules(getCodeFighterAppPath(updatedChat.app.path)),
           chatMode:
             settings.selectedChatMode === "agent"
               ? "build"
@@ -616,7 +616,7 @@ ${componentSnippet}
         if (isSecurityReviewIntent) {
           systemPrompt = SECURITY_REVIEW_SYSTEM_PROMPT;
           try {
-            const appPath = getcodeFighterAppPath(updatedChat.app.path);
+            const appPath = getCodeFighterAppPath(updatedChat.app.path);
             const rulesPath = path.join(appPath, "SECURITY_RULES.md");
             let securityRules = "";
 
@@ -976,7 +976,7 @@ This conversation includes one or more image attachments. When the user uploads 
               },
             },
             systemPromptOverride: constructSystemPrompt({
-              aiRules: await readAiRules(getcodeFighterAppPath(updatedChat.app.path)),
+              aiRules: await readAiRules(getCodeFighterAppPath(updatedChat.app.path)),
               chatMode: "agent",
               enableTurboEditsV2: false,
             }),
@@ -1026,7 +1026,7 @@ This conversation includes one or more image attachments. When the user uploads 
           ) {
             let issues = await dryRunSearchReplace({
               fullResponse,
-              appPath: getcodeFighterAppPath(updatedChat.app.path),
+              appPath: getCodeFighterAppPath(updatedChat.app.path),
             });
 
             let searchReplaceFixAttempts = 0;
@@ -1096,7 +1096,7 @@ ${formattedSearchReplaceIssues}`,
               // Re-check for issues after the fix attempt
               issues = await dryRunSearchReplace({
                 fullResponse: result.incrementalResponse,
-                appPath: getcodeFighterAppPath(updatedChat.app.path),
+                appPath: getCodeFighterAppPath(updatedChat.app.path),
               });
             }
           }
@@ -1155,7 +1155,7 @@ ${formattedSearchReplaceIssues}`,
               // IF auto-fix is enabled
               let problemReport = await generateProblemReport({
                 fullResponse,
-                appPath: getcodeFighterAppPath(updatedChat.app.path),
+                appPath: getCodeFighterAppPath(updatedChat.app.path),
               });
 
               let autoFixAttempts = 0;
@@ -1182,7 +1182,7 @@ ${problemReport.problems
                 const problemFixPrompt = createProblemFixPrompt(problemReport);
 
                 const virtualFileSystem = new AsyncVirtualFileSystem(
-                  getcodeFighterAppPath(updatedChat.app.path),
+                  getCodeFighterAppPath(updatedChat.app.path),
                   {
                     fileExists: (fileName: string) => fileExists(fileName),
                     readFile: (fileName: string) => readFileWithCache(fileName),
@@ -1253,7 +1253,7 @@ ${problemReport.problems
 
                 problemReport = await generateProblemReport({
                   fullResponse,
-                  appPath: getcodeFighterAppPath(updatedChat.app.path),
+                  appPath: getCodeFighterAppPath(updatedChat.app.path),
                 });
               }
             } catch (error) {
@@ -1574,8 +1574,8 @@ export function removeProblemReportTags(text: string): string {
 }
 
 export function removeCodeFighterTags(text: string): string {
-  const code-fighterRegex = /<code-fighter-[^>]*>[\s\S]*?<\/code-fighter-[^>]*>/g;
-  return text.replace(code-fighterRegex, "").trim();
+  const codeFighterRegex = /<code-fighter-[^>]*>[\s\S]*?<\/code-fighter-[^>]*>/g;
+  return text.replace(codeFighterRegex, "").trim();
 }
 
 export function hasUnclosedCodeFighterWrite(text: string): boolean {

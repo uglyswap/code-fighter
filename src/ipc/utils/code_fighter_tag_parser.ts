@@ -86,7 +86,7 @@ export function getCodeFighterAddDependencyTags(fullResponse: string): string[] 
   return packages;
 }
 
-export function getcodeFighterChatSummaryTag(fullResponse: string): string | null {
+export function getCodeFighterChatSummaryTag(fullResponse: string): string | null {
   const codeFighterChatSummaryRegex =
     /<code-fighter-chat-summary>([\s\S]*?)<\/code-fighter-chat-summary>/g;
   const match = codeFighterChatSummaryRegex.exec(fullResponse);

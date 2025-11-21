@@ -182,7 +182,7 @@ export const CodeFighterProBudgetSchema = z.object({
   budgetResetAt: z.string(),
   maxBudget: z.number(),
 });
-export type CodeFighterProBudget = z.infer<typeof Code FighterProBudgetSchema>;
+export type CodeFighterProBudget = z.infer<typeof CodeFighterProBudgetSchema>;
 
 export const GlobPathSchema = z.object({
   globPath: z.string(),

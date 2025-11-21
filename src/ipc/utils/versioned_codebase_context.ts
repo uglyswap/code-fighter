@@ -33,9 +33,9 @@ export function parseFilesFromMessage(content: string): string[] {
   const matches: TagMatch[] = [];
 
   // Parse <code-fighter-read path="$filePath"></code-fighter-read>
-  const code-fighterReadRegex = /<code-fighter-read\s+path="([^"]+)"\s*><\/code-fighter-read>/gs;
+  const codeFighterReadRegex = /<code-fighter-read\s+path="([^"]+)"\s*><\/code-fighter-read>/gs;
   let match: RegExpExecArray | null;
-  while ((match = code-fighterReadRegex.exec(content)) !== null) {
+  while ((match = codeFighterReadRegex.exec(content)) !== null) {
     const filePath = normalizePath(match[1].trim());
     if (filePath) {
       matches.push({
