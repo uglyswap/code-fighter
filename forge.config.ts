@@ -97,7 +97,7 @@ const config: ForgeConfig = {
       name: "@electron-forge/publisher-github",
       config: {
         repository: {
-          owner: "your-username",
+          owner: "uglyswap",
           name: "code-fighter",
         },
         draft: true,

@@ -242,7 +242,7 @@ export async function deploySupabaseFunctions({
     JSON.stringify({
       entrypoint_path: "index.ts",
       name: functionName,
-      // See: https://github.com/your-username/code-fighter/issues/1010
+      // See: https://github.com/uglyswap/code-fighter/issues/1010
       verify_jwt: false,
     }),
   );

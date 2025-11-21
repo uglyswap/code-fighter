@@ -6,4 +6,4 @@ We will provide security fixes for the latest version of Code Fighter and encour
 
 ## Reporting a Vulnerability
 
-Please file security vulnerabilities by using [report a vulnerability](https://github.com/your-username/code-fighter/security/advisories/new). Please do not file security vulnerabilities as a regular issue as the information could be used to exploit Code Fighter users.
+Please file security vulnerabilities by using [report a vulnerability](https://github.com/uglyswap/code-fighter/security/advisories/new). Please do not file security vulnerabilities as a regular issue as the information could be used to exploit Code Fighter users.

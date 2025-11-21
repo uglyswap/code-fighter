@@ -1,5 +1,5 @@
 ---
-name: Dyad Hub Issue
+name: Code Fighter Hub Issue
 about: Found an issue with codefighter.dev/hub?
 title: "[hub]"
 labels: "hub"

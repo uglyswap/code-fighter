@@ -21,7 +21,7 @@ Code Fighter is a local, open-source AI code editor with all Pro features unlock
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/code-fighter.git
+git clone https://github.com/uglyswap/code-fighter.git
 cd code-fighter
 
 # Install dependencies

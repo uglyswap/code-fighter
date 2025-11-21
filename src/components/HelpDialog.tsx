@@ -114,7 +114,7 @@ ${debugInfo.logs.slice(-3_500) || "No logs available"}
       if (isCodeFighterProUser) {
         labels.push("pro");
       }
-      const githubIssueUrl = `https://github.com/your-username/code-fighter/issues/new?title=${encodedTitle}&labels=${labels}&body=${encodedBody}`;
+      const githubIssueUrl = `https://github.com/uglyswap/code-fighter/issues/new?title=${encodedTitle}&labels=${labels}&body=${encodedBody}`;
 
       // Open the pre-filled GitHub issue page
       IpcClient.getInstance().openExternalUrl(githubIssueUrl);
@@ -122,7 +122,7 @@ ${debugInfo.logs.slice(-3_500) || "No logs available"}
       console.error("Failed to prepare bug report:", error);
       // Fallback to opening the regular GitHub issue page
       IpcClient.getInstance().openExternalUrl(
-        "https://github.com/your-username/code-fighter/issues/new",
+        "https://github.com/uglyswap/code-fighter/issues/new",
       );
     } finally {
       setIsLoading(false);
@@ -238,7 +238,7 @@ Session ID: ${sessionId}
     if (isCodeFighterProUser) {
       labels.push("pro");
     }
-    const githubIssueUrl = `https://github.com/your-username/code-fighter/issues/new?title=${encodedTitle}&labels=${labels}&body=${encodedBody}`;
+    const githubIssueUrl = `https://github.com/uglyswap/code-fighter/issues/new?title=${encodedTitle}&labels=${labels}&body=${encodedBody}`;
 
     IpcClient.getInstance().openExternalUrl(githubIssueUrl);
     handleClose();

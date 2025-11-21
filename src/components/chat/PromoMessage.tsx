@@ -182,7 +182,7 @@ export const ROADMAP_TIP: MessageConfig = {
   ],
 };
 
-// Like CodeFighter? Star it on GitHub https://github.com/your-username/code-fighter/
+// Like CodeFighter? Star it on GitHub https://github.com/uglyswap/code-fighter/
 export const GITHUB_TIP: MessageConfig = {
   spans: [
     {
@@ -192,7 +192,7 @@ export const GITHUB_TIP: MessageConfig = {
     {
       type: "link",
       content: "GitHub",
-      url: "https://github.com/your-username/code-fighter",
+      url: "https://github.com/uglyswap/code-fighter",
     },
   ],
 };

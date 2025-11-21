@@ -80,7 +80,7 @@ export async function onReady() {
       logger,
       updateSource: {
         type: UpdateSourceType.ElectronPublicUpdateService,
-        repo: "your-username/code-fighter",
+        repo: "uglyswap/code-fighter",
         host,
       },
     }); // additional configuration options available

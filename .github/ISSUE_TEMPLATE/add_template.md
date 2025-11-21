@@ -1,12 +1,12 @@
 ---
 name: Add Template
-about: Request to add a template to Dyad Hub
+about: Request to add a template to Code Fighter Hub
 title: "Add Template: [Template Name]"
 labels: "add-template"
 assignees: ""
 ---
 
-If you'd like to add a template to Dyad Hub, follow the [Add Template guide](https://codefighter.dev/docs/templates/add-template).
+If you'd like to add a template to Code Fighter Hub, follow the [Add Template guide](https://codefighter.dev/docs/templates/add-template).
 
 **Template name:**
 

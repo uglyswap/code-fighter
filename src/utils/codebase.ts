@@ -44,9 +44,9 @@ const ALLOWED_EXTENSIONS = [
   ".gradle",
   ".swift",
   // Edge cases
-  // https://github.com/your-username/code-fighter/issues/880
+  // https://github.com/uglyswap/code-fighter/issues/880
   ".py",
-  // https://github.com/your-username/code-fighter/issues/1221
+  // https://github.com/uglyswap/code-fighter/issues/1221
   ".php",
 ];
 
@@ -55,7 +55,7 @@ const ALLOWED_EXTENSIONS = [
 // people don't have their gitignore setup correctly so we want to
 // be conservative and never include these directories.
 //
-// ex: https://github.com/your-username/code-fighter/issues/727
+// ex: https://github.com/uglyswap/code-fighter/issues/727
 const EXCLUDED_DIRS = [
   "node_modules",
   ".git",
