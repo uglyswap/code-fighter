@@ -17,8 +17,8 @@ async function verifyReleaseAssets() {
     console.log(`🔍 Verifying release assets for version ${version}...`);
 
     // GitHub API configuration
-    const owner = "dyad-sh";
-    const repo = "dyad";
+    const owner = "code-fighter-sh";
+    const repo = "code-fighter";
     const token = process.env.GITHUB_TOKEN;
 
     if (!token) {
@@ -35,7 +35,7 @@ async function verifyReleaseAssets() {
       headers: {
         Authorization: `token ${token}`,
         Accept: "application/vnd.github.v3+json",
-        "User-Agent": "dyad-release-verifier",
+        "User-Agent": "code-fighter-release-verifier",
       },
     });
 
@@ -81,12 +81,12 @@ async function verifyReleaseAssets() {
 
     // Define expected assets with platform-specific version handling
     const expectedAssets = [
-      `dyad-${normalizeVersionForPlatform(version, "rpm")}-1.x86_64.rpm`,
-      `dyad-${normalizeVersionForPlatform(version, "nupkg")}-full.nupkg`,
-      `dyad-${version}.Setup.exe`,
-      `dyad-darwin-arm64-${version}.zip`,
-      `dyad-darwin-x64-${version}.zip`,
-      `dyad_${normalizeVersionForPlatform(version, "deb")}_amd64.deb`,
+      `code-fighter-${normalizeVersionForPlatform(version, "rpm")}-1.x86_64.rpm`,
+      `code-fighter-${normalizeVersionForPlatform(version, "nupkg")}-full.nupkg`,
+      `code-fighter-${version}.Setup.exe`,
+      `code-fighter-darwin-arm64-${version}.zip`,
+      `code-fighter-darwin-x64-${version}.zip`,
+      `code_fighter_${normalizeVersionForPlatform(version, "deb")}_amd64.deb`,
       "RELEASES",
     ];
 

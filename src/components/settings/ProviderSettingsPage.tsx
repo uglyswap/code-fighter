@@ -55,22 +55,22 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
   const supportsCustomModels =
     providerData?.type === "custom" || providerData?.type === "cloud";
 
-  const isDyad = provider === "auto";
+  const isCodeFighter = provider === "auto";
 
   const [apiKeyInput, setApiKeyInput] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const router = useRouter();
 
-  // Use fetched data (or defaults for Dyad)
-  const providerDisplayName = isDyad
+  // Use fetched data (or defaults for CodeFighter)
+  const providerDisplayName = isCodeFighter
     ? "Code Fighter"
     : (providerData?.name ?? "Unknown Provider");
-  const providerWebsiteUrl = isDyad
+  const providerWebsiteUrl = isCodeFighter
     ? "https://academy.codefighter.dev/settings"
     : providerData?.websiteUrl;
-  const hasFreeTier = isDyad ? false : providerData?.hasFreeTier;
-  const envVarName = isDyad ? undefined : providerData?.envVarName;
+  const hasFreeTier = isCodeFighter ? false : providerData?.hasFreeTier;
+  const envVarName = isCodeFighter ? undefined : providerData?.envVarName;
 
   // Use provider ID (which is the 'provider' prop)
   const userApiKey = settings?.providerSettings?.[provider]?.apiKey?.value;
@@ -137,8 +137,8 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
           },
         },
       };
-      if (isDyad) {
-        settingsUpdate.enableDyadPro = true;
+      if (isCodeFighter) {
+        settingsUpdate.enableCodeFighterPro = true;
       }
       await updateSettings(settingsUpdate);
       setApiKeyInput(""); // Clear input on success
@@ -175,11 +175,11 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
   };
 
   // --- Toggle Code Fighter Pro Handler ---
-  const handleToggleDyadPro = async (enabled: boolean) => {
+  const handleToggleCodeFighterPro = async (enabled: boolean) => {
     setIsSaving(true);
     try {
       await updateSettings({
-        enableDyadPro: enabled,
+        enableCodeFighterPro: enabled,
       });
     } catch (error: any) {
       showError(`Error toggling Code Fighter Pro: ${error}`);
@@ -241,7 +241,7 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
   }
 
   // Handle case where provider is not found (e.g., invalid ID in URL)
-  if (!providerData && !isDyad) {
+  if (!providerData && !isCodeFighter) {
     return (
       <div className="min-h-screen px-8 py-4">
         <div className="max-w-4xl mx-auto">
@@ -278,7 +278,7 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
           isLoading={settingsLoading}
           hasFreeTier={hasFreeTier}
           providerWebsiteUrl={providerWebsiteUrl}
-          isDyad={isDyad}
+          isCodeFighter={isCodeFighter}
           onBackClick={() => router.history.back()}
         />
 
@@ -306,12 +306,12 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
             onApiKeyInputChange={setApiKeyInput}
             onSaveKey={handleSaveKey}
             onDeleteKey={handleDeleteKey}
-            isDyad={isDyad}
+            isCodeFighter={isCodeFighter}
             updateSettings={updateSettings}
           />
         )}
 
-        {isDyad && !settingsLoading && (
+        {isCodeFighter && !settingsLoading && (
           <div className="mt-6 flex items-center justify-between p-4 bg-(--background-lightest) rounded-lg border">
             <div>
               <h3 className="font-medium">Enable Code Fighter Pro</h3>
@@ -320,8 +320,8 @@ export function ProviderSettingsPage({ provider }: ProviderSettingsPageProps) {
               </p>
             </div>
             <Switch
-              checked={settings?.enableDyadPro}
-              onCheckedChange={handleToggleDyadPro}
+              checked={settings?.enableCodeFighterPro}
+              onCheckedChange={handleToggleCodeFighterPro}
               disabled={isSaving}
             />
           </div>

@@ -1,6 +1,6 @@
-<dyad-rename from="src/App.tsx" to="src/Renamed.tsx">
-</dyad-rename>
+<code-fighter-rename from="src/App.tsx" to="src/Renamed.tsx">
+</code-fighter-rename>
 
-<dyad-write path="src/Renamed.tsx">
+<code-fighter-write path="src/Renamed.tsx">
 // newly added content to renamed file should exist
-</dyad-write>
+</code-fighter-write>

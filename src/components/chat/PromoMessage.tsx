@@ -90,8 +90,8 @@ export const REDDIT_TIP: MessageConfig = {
     },
     {
       type: "link",
-      content: "Dyad subreddit",
-      url: "https://www.reddit.com/r/dyadbuilders/",
+      content: "Code Fighter subreddit",
+      url: "https://www.reddit.com/r/CodeFighterbuilders/",
     },
   ],
 };
@@ -124,7 +124,7 @@ export const BUILD_A_BIBLE_APP_TIP: MessageConfig = {
     },
     {
       type: "text",
-      content: " the creator of Dyad build a Bible app step-by-step",
+      content: " the creator of Code Fighter build a Bible app step-by-step",
     },
   ],
 };
@@ -182,12 +182,12 @@ export const ROADMAP_TIP: MessageConfig = {
   ],
 };
 
-// Like Dyad? Star it on GitHub https://github.com/your-username/code-fighter/
+// Like CodeFighter? Star it on GitHub https://github.com/your-username/code-fighter/
 export const GITHUB_TIP: MessageConfig = {
   spans: [
     {
       type: "text",
-      content: "Like Dyad? Star it on ",
+      content: "Like CodeFighter? Star it on ",
     },
     {
       type: "link",

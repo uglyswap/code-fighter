@@ -144,12 +144,12 @@ export function TokenBar({ chatId }: TokenBarProps) {
       </TooltipProvider>
       {error && <div className="text-red-500 text-xs mt-1">{error}</div>}
       {(!settings?.enableProSmartFilesContextMode ||
-        !settings?.enableDyadPro) && (
+        !settings?.enableCodeFighterPro) && (
         <div className="text-xs text-center text-muted-foreground mt-2">
           Optimize your tokens with{" "}
           <a
             onClick={() =>
-              settings?.enableDyadPro
+              settings?.enableCodeFighterPro
                 ? IpcClient.getInstance().openExternalUrl(
                     "https://www.codefighter.dev/docs/guides/ai-models/pro-modes#smart-context",
                   )

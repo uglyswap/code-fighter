@@ -28,7 +28,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   hasRunBefore: false,
   experiments: {},
   // Code Fighter: All Pro features enabled by default
-  enableDyadPro: true,
+  enableCodeFighterPro: true,
   enableProLazyEditsMode: true,
   proLazyEditsMode: "v2",
   enableProSmartFilesContextMode: true,

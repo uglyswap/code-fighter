@@ -1,2 +1,2 @@
 Adding supabase...
-<dyad-add-integration provider="supabase"></dyad-add-integration>
+<code-fighter-add-integration provider="supabase"></code-fighter-add-integration>

@@ -38,7 +38,7 @@ or to provide a custom fetch implementation for e.g. testing.
   fetch?: FetchFunction;
 
   originalProviderId: string;
-  dyadOptions: {
+  codeFighterOptions: {
     enableLazyEdits?: boolean;
     enableSmartFilesContext?: boolean;
     enableWebSearch?: boolean;
@@ -47,7 +47,7 @@ or to provide a custom fetch implementation for e.g. testing.
   settings: UserSettings;
 }
 
-export interface DyadEngineProvider {
+export interface CodeFighterEngineProvider {
   /**
 Creates a model for text generation.
 */
@@ -65,11 +65,11 @@ Creates a chat model for text generation.
   ): LanguageModelV2;
 }
 
-export function createDyadEngine(
+export function createCodeFighterEngine(
   options: ExampleProviderSettings,
-): DyadEngineProvider {
+): CodeFighterEngineProvider {
   const baseURL = withoutTrailingSlash(options.baseURL);
-  logger.info("creating dyad engine with baseURL", baseURL);
+  logger.info("creating code-fighter engine with baseURL", baseURL);
 
   // Track request ID attempts
   const requestIdAttempts = new Map<string, number>();
@@ -77,7 +77,7 @@ export function createDyadEngine(
   const getHeaders = () => ({
     Authorization: `Bearer ${loadApiKey({
       apiKey: options.apiKey,
-      environmentVariableName: "DYAD_PRO_API_KEY",
+      environmentVariableName: "CODE_FIGHTER_PRO_API_KEY",
       description: "Example API key",
     })}`,
     ...options.headers,
@@ -91,7 +91,7 @@ export function createDyadEngine(
   }
 
   const getCommonModelConfig = (): CommonModelConfig => ({
-    provider: `dyad-engine`,
+    provider: `code-fighter-engine`,
     url: ({ path }) => {
       const url = new URL(`${baseURL}${path}`);
       if (options.queryParams) {
@@ -125,29 +125,29 @@ export function createDyadEngine(
               options.settings,
             ),
           };
-          const dyadVersionedFiles = parsedBody.dyadVersionedFiles;
-          if ("dyadVersionedFiles" in parsedBody) {
-            delete parsedBody.dyadVersionedFiles;
+          const codeFighterVersionedFiles = parsedBody.codeFighterVersionedFiles;
+          if ("codeFighterVersionedFiles" in parsedBody) {
+            delete parsedBody.codeFighterVersionedFiles;
           }
-          const dyadFiles = parsedBody.dyadFiles;
-          if ("dyadFiles" in parsedBody) {
-            delete parsedBody.dyadFiles;
+          const codeFighterFiles = parsedBody.codeFighterFiles;
+          if ("codeFighterFiles" in parsedBody) {
+            delete parsedBody.codeFighterFiles;
           }
-          const requestId = parsedBody.dyadRequestId;
-          if ("dyadRequestId" in parsedBody) {
-            delete parsedBody.dyadRequestId;
+          const requestId = parsedBody.codeFighterRequestId;
+          if ("codeFighterRequestId" in parsedBody) {
+            delete parsedBody.codeFighterRequestId;
           }
-          const dyadAppId = parsedBody.dyadAppId;
-          if ("dyadAppId" in parsedBody) {
-            delete parsedBody.dyadAppId;
+          const codeFighterAppId = parsedBody.codeFighterAppId;
+          if ("codeFighterAppId" in parsedBody) {
+            delete parsedBody.codeFighterAppId;
           }
-          const dyadDisableFiles = parsedBody.dyadDisableFiles;
-          if ("dyadDisableFiles" in parsedBody) {
-            delete parsedBody.dyadDisableFiles;
+          const codeFighterDisableFiles = parsedBody.codeFighterDisableFiles;
+          if ("codeFighterDisableFiles" in parsedBody) {
+            delete parsedBody.codeFighterDisableFiles;
           }
-          const dyadMentionedApps = parsedBody.dyadMentionedApps;
-          if ("dyadMentionedApps" in parsedBody) {
-            delete parsedBody.dyadMentionedApps;
+          const codeFighterMentionedApps = parsedBody.codeFighterMentionedApps;
+          if ("codeFighterMentionedApps" in parsedBody) {
+            delete parsedBody.codeFighterMentionedApps;
           }
 
           // Track and modify requestId with attempt number
@@ -159,19 +159,19 @@ export function createDyadEngine(
           }
 
           // Add files to the request if they exist
-          if (!dyadDisableFiles) {
-            parsedBody.dyad_options = {
-              files: dyadFiles,
-              versioned_files: dyadVersionedFiles,
-              enable_lazy_edits: options.dyadOptions.enableLazyEdits,
+          if (!codeFighterDisableFiles) {
+            parsedBody.code_fighter_options = {
+              files: codeFighterFiles,
+              versioned_files: codeFighterVersionedFiles,
+              enable_lazy_edits: options.codeFighterOptions.enableLazyEdits,
               enable_smart_files_context:
-                options.dyadOptions.enableSmartFilesContext,
-              smart_context_mode: options.dyadOptions.smartContextMode,
-              enable_web_search: options.dyadOptions.enableWebSearch,
-              app_id: dyadAppId,
+                options.codeFighterOptions.enableSmartFilesContext,
+              smart_context_mode: options.codeFighterOptions.smartContextMode,
+              enable_web_search: options.codeFighterOptions.enableWebSearch,
+              app_id: codeFighterAppId,
             };
-            if (dyadMentionedApps?.length) {
-              parsedBody.dyad_options.mentioned_apps = dyadMentionedApps;
+            if (codeFighterMentionedApps?.length) {
+              parsedBody.code_fighter_options.mentioned_apps = codeFighterMentionedApps;
             }
           }
 
@@ -181,7 +181,7 @@ export function createDyadEngine(
             headers: {
               ...init.headers,
               ...(modifiedRequestId && {
-                "X-Dyad-Request-Id": modifiedRequestId,
+                "X-code-fighter-Request-Id": modifiedRequestId,
               }),
             },
             body: JSON.stringify(parsedBody),

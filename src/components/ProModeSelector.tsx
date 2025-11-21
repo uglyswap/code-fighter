@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Sparkles, Info } from "lucide-react";
 import { useSettings } from "@/hooks/useSettings";
 import { IpcClient } from "@/ipc/ipc_client";
-import { hasDyadProKey, type UserSettings } from "@/lib/schemas";
+import { hasCodeFighterProKey, type UserSettings } from "@/lib/schemas";
 
 export function ProModeSelector() {
   const { settings, updateSettings } = useSettings();
@@ -53,12 +53,12 @@ export function ProModeSelector() {
 
   const toggleProEnabled = () => {
     updateSettings({
-      enableDyadPro: !settings?.enableDyadPro,
+      enableCodeFighterPro: !settings?.enableCodeFighterPro,
     });
   };
 
-  const hasProKey = settings ? hasDyadProKey(settings) : false;
-  const proModeTogglable = hasProKey && Boolean(settings?.enableDyadPro);
+  const hasProKey = settings ? hasCodeFighterProKey(settings) : false;
+  const proModeTogglable = hasProKey && Boolean(settings?.enableCodeFighterPro);
 
   return (
     <Popover>
@@ -113,13 +113,13 @@ export function ProModeSelector() {
               label="Enable Code Fighter Pro"
               tooltip="Uses Code Fighter Pro AI credits for the main AI model and Pro modes."
               isTogglable={hasProKey}
-              settingEnabled={Boolean(settings?.enableDyadPro)}
+              settingEnabled={Boolean(settings?.enableCodeFighterPro)}
               toggle={toggleProEnabled}
             />
             <SelectorRow
               id="web-search"
               label="Web Access"
-              tooltip="Allows Dyad to access the web (e.g. search for information)"
+              tooltip="Allows Code Fighter to access the web (e.g. search for information)"
               isTogglable={proModeTogglable}
               settingEnabled={Boolean(settings?.enableProWebSearch)}
               toggle={toggleWebSearch}

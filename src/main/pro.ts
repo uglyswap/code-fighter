@@ -1,6 +1,6 @@
 import { readSettings, writeSettings } from "./settings";
 
-export function handleDyadProReturn({ apiKey }: { apiKey: string }) {
+export function handleCodeFighterProReturn({ apiKey }: { apiKey: string }) {
   const settings = readSettings();
   writeSettings({
     providerSettings: {
@@ -12,6 +12,6 @@ export function handleDyadProReturn({ apiKey }: { apiKey: string }) {
         },
       },
     },
-    enableDyadPro: true,
+    enableCodeFighterPro: true,
   });
 }

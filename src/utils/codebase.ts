@@ -379,9 +379,9 @@ async function formatFile({
   try {
     // Check if we should read file contents
     if (!shouldReadFileContents({ filePath, normalizedRelativePath })) {
-      return `<dyad-file path="${normalizedRelativePath}">
+      return `<code-fighter-file path="${normalizedRelativePath}">
 ${OMITTED_FILE_CONTENT}
-</dyad-file>
+</code-fighter-file>
 
 `;
     }
@@ -389,23 +389,23 @@ ${OMITTED_FILE_CONTENT}
     const content = await readFileWithCache(filePath, virtualFileSystem);
 
     if (content == null) {
-      return `<dyad-file path="${normalizedRelativePath}">
+      return `<code-fighter-file path="${normalizedRelativePath}">
 // Error reading file
-</dyad-file>
+</code-fighter-file>
 
 `;
     }
 
-    return `<dyad-file path="${normalizedRelativePath}">
+    return `<code-fighter-file path="${normalizedRelativePath}">
 ${content}
-</dyad-file>
+</code-fighter-file>
 
 `;
   } catch (error) {
     logger.error(`Error reading file: ${filePath}`, error);
-    return `<dyad-file path="${normalizedRelativePath}">
+    return `<code-fighter-file path="${normalizedRelativePath}">
 // Error reading file: ${error}
-</dyad-file>
+</code-fighter-file>
 
 `;
   }
@@ -445,7 +445,7 @@ export async function extractCodebase({
 }> {
   const settings = readSettings();
   const isSmartContextEnabled =
-    settings?.enableDyadPro && settings?.enableProSmartFilesContextMode;
+    settings?.enableCodeFighterPro && settings?.enableProSmartFilesContextMode;
 
   try {
     await fsAsync.access(appPath);

@@ -11,11 +11,11 @@ import remarkGfm from "remark-gfm";
 export function ChatErrorBox({
   onDismiss,
   error,
-  isDyadProEnabled,
+  isCodeFighterProEnabled,
 }: {
   onDismiss: () => void;
   error: string;
-  isDyadProEnabled: boolean;
+  isCodeFighterProEnabled: boolean;
 }) {
   if (error.includes("doesn't have a free quota tier")) {
     return (
@@ -23,7 +23,7 @@ export function ChatErrorBox({
         {error}
         <span className="ml-1">
           <ExternalLink
-            href="https://codefighter.dev/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=free-quota-error"
+            href="https://codefighter.dev/pro?utm_source=code-fighter-app&utm_medium=app&utm_campaign=free-quota-error"
             variant="primary"
           >
             Access with Code Fighter Pro
@@ -46,7 +46,7 @@ export function ChatErrorBox({
         {error}
         <div className="mt-2 space-y-2 space-x-2">
           <ExternalLink
-            href="https://codefighter.dev/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=rate-limit-error"
+            href="https://codefighter.dev/pro?utm_source=code-fighter-app&utm_medium=app&utm_campaign=rate-limit-error"
             variant="primary"
           >
             Upgrade to Code Fighter Pro
@@ -66,7 +66,7 @@ export function ChatErrorBox({
         <span>
           Looks like you don't have a valid Code Fighter Pro key.{" "}
           <ExternalLink
-            href="https://codefighter.dev/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=invalid-pro-key-error"
+            href="https://codefighter.dev/pro?utm_source=code-fighter-app&utm_medium=app&utm_campaign=invalid-pro-key-error"
             variant="primary"
           >
             Upgrade to Code Fighter Pro
@@ -76,13 +76,13 @@ export function ChatErrorBox({
       </ChatInfoContainer>
     );
   }
-  if (isDyadProEnabled && error.includes("ExceededBudget:")) {
+  if (isCodeFighterProEnabled && error.includes("ExceededBudget:")) {
     return (
       <ChatInfoContainer onDismiss={onDismiss}>
         <span>
-          You have used all of your Dyad AI credits this month.{" "}
+          You have used all of your Code Fighter AI credits this month.{" "}
           <ExternalLink
-            href="https://academy.codefighter.dev/subscription?utm_source=dyad-app&utm_medium=app&utm_campaign=exceeded-budget-error"
+            href="https://academy.codefighter.dev/subscription?utm_source=code-fighter-app&utm_medium=app&utm_campaign=exceeded-budget-error"
             variant="primary"
           >
             Reload or upgrade your subscription
@@ -100,11 +100,11 @@ export function ChatErrorBox({
     <ChatErrorContainer onDismiss={onDismiss}>
       {error}
       <div className="mt-2 space-y-2 space-x-2">
-        {!isDyadProEnabled &&
+        {!isCodeFighterProEnabled &&
           error.includes(AI_STREAMING_ERROR_MESSAGE_PREFIX) &&
           !error.includes("TypeError: terminated") && (
             <ExternalLink
-              href="https://codefighter.dev/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=general-error"
+              href="https://codefighter.dev/pro?utm_source=code-fighter-app&utm_medium=app&utm_campaign=general-error"
               variant="primary"
             >
               Upgrade to Code Fighter Pro

@@ -492,7 +492,7 @@ export const CLOUD_PROVIDERS: Record<
   auto: {
     displayName: "Code Fighter",
     websiteUrl: "https://academy.codefighter.dev/settings",
-    gatewayPrefix: "dyad/",
+    gatewayPrefix: "code-fighter/",
   },
   azure: {
     displayName: "Azure OpenAI",

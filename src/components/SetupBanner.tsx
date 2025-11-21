@@ -114,10 +114,10 @@ export function SetupBanner() {
       params: { provider: "openrouter" },
     });
   };
-  const handleDyadProSetupClick = () => {
-    posthog.capture("setup-flow:ai-provider-setup:dyad:click");
+  const handleCodeFighterProSetupClick = () => {
+    posthog.capture("setup-flow:ai-provider-setup:code-fighter:click");
     IpcClient.getInstance().openExternalUrl(
-      "https://www.codefighter.dev/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=setup-banner",
+      "https://www.codefighter.dev/pro?utm_source=code-fighter-app&utm_medium=app&utm_campaign=setup-banner",
     );
   };
 
@@ -178,7 +178,7 @@ export function SetupBanner() {
   return (
     <>
       <p className="text-xl font-medium text-zinc-700 dark:text-zinc-300 p-4">
-        Setup Dyad
+        Setup CodeFighter
       </p>
       <OnboardingBanner
         isVisible={isOnboardingVisible}
@@ -344,10 +344,10 @@ export function SetupBanner() {
               <SetupProviderCard
                 className="mt-2"
                 variant="Code Fighter"
-                onClick={handleDyadProSetupClick}
+                onClick={handleCodeFighterProSetupClick}
                 tabIndex={isNodeSetupComplete ? 0 : -1}
                 leadingIcon={
-                  <img src={logo} alt="Dyad Logo" className="w-6 h-6 mr-0.5" />
+                  <img src={logo} alt="Code Fighter Logo" className="w-6 h-6 mr-0.5" />
                 }
                 title="Setup Code Fighter Pro"
                 subtitle="Access all AI models with one plan"
@@ -446,7 +446,7 @@ function NodeInstallButton({
     case "finished-checking":
       return (
         <div className="mt-3 text-sm text-red-600 dark:text-red-400">
-          Node.js not detected. Closing and re-opening Dyad usually fixes this.
+          Node.js not detected. Closing and re-opening Code Fighter usually fixes this.
         </div>
       );
     default:

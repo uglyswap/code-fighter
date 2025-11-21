@@ -34,11 +34,11 @@ export function ReleaseChannelSelector() {
     } else {
       toast("Using Beta release channel", {
         description:
-          "You will need to restart Dyad for your settings to take effect.",
+          "You will need to Restart Code Fighter for your settings to take effect.",
         action: {
-          label: "Restart Dyad",
+          label: "Restart Code Fighter",
           onClick: () => {
-            IpcClient.getInstance().restartDyad();
+            IpcClient.getInstance().restartCodeFighter();
           },
         },
       });

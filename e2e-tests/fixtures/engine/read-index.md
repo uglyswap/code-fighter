@@ -1,3 +1,3 @@
 Read the index page:
-<dyad-read path="src/pages/Index.tsx"></dyad-read>
+<code-fighter-read path="src/pages/Index.tsx"></code-fighter-read>
 Done.

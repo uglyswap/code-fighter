@@ -1,2 +1,2 @@
 Moving a file
-<dyad-rename from="dir/c.txt" to="new-dir/d.txt"></dyad-rename>
+<code-fighter-rename from="dir/c.txt" to="new-dir/d.txt"></code-fighter-rename>

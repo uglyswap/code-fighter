@@ -243,7 +243,7 @@ export function LexicalChatInput({
   onSubmit,
   onPaste,
   excludeCurrentApp,
-  placeholder = "Ask Dyad to build...",
+  placeholder = "Ask Code Fighter to build...",
   disabled = false,
 }: LexicalChatInputProps) {
   const { apps } = useLoadApps();

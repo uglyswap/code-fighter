@@ -1,7 +1,7 @@
 No description!
 
-<dyad-execute-sql>
+<code-fighter-execute-sql>
 DROP TABLE users;
-</dyad-execute-sql>
+</code-fighter-execute-sql>
 
 Done.

@@ -1,3 +1,3 @@
 chat2
 
-<dyad-chat-summary>Chat 2</dyad-chat-summary>
+<code-fighter-chat-summary>Chat 2</code-fighter-chat-summary>

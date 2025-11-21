@@ -58,7 +58,7 @@ import { cn } from "@/lib/utils";
 import { normalizePath } from "../../../shared/normalizePath";
 
 interface ErrorBannerProps {
-  error: { message: string; source: "preview-app" | "dyad-app" } | undefined;
+  error: { message: string; source: "preview-app" | "code-fighter-app" } | undefined;
   onDismiss: () => void;
   onAIFix: () => void;
 }
@@ -91,10 +91,10 @@ const ErrorBanner = ({ error, onDismiss, onAIFix }: ErrorBannerProps) => {
         <X size={14} className="text-red-500 dark:text-red-400" />
       </button>
 
-      {/* Add a little chip that says "Internal error" if source is "dyad-app" */}
-      {error.source === "dyad-app" && (
+      {/* Add a little chip that says "Internal error" if source is "code-fighter-app" */}
+      {error.source === "code-fighter-app" && (
         <div className="absolute top-1 right-1 p-1 bg-red-100 dark:bg-red-900 rounded-md text-xs font-medium text-red-700 dark:text-red-300">
-          Internal Dyad error
+          Internal Code Fighter error
         </div>
       )}
 
@@ -102,7 +102,7 @@ const ErrorBanner = ({ error, onDismiss, onAIFix }: ErrorBannerProps) => {
       <div
         className={cn(
           "px-6 py-1 text-sm",
-          error.source === "dyad-app" && "pt-6",
+          error.source === "code-fighter-app" && "pt-6",
         )}
       >
         <div
@@ -129,8 +129,8 @@ const ErrorBanner = ({ error, onDismiss, onAIFix }: ErrorBannerProps) => {
             <span className="font-medium">Tip: </span>
             {isDockerError
               ? "Make sure Docker Desktop is running and try restarting the app."
-              : error.source === "dyad-app"
-                ? "Try restarting the Dyad app or restarting your computer to see if that fixes the error."
+              : error.source === "code-fighter-app"
+                ? "Try restarting the Code Fighter app or restarting your computer to see if that fixes the error."
                 : "Check if restarting the app fixes the error."}
           </span>
         </div>
@@ -204,7 +204,7 @@ export const PreviewIframe = ({ loading }: { loading: boolean }) => {
     if (!selectedComponentsPreview || selectedComponentsPreview.length === 0) {
       if (iframeRef.current?.contentWindow) {
         iframeRef.current.contentWindow.postMessage(
-          { type: "deactivate-dyad-component-selector" },
+          { type: "deactivate-code-fighter-component-selector" },
           "*",
         );
       }
@@ -220,18 +220,18 @@ export const PreviewIframe = ({ loading }: { loading: boolean }) => {
         return;
       }
 
-      if (event.data?.type === "dyad-component-selector-initialized") {
+      if (event.data?.type === "code-fighter-component-selector-initialized") {
         setIsComponentSelectorInitialized(true);
         return;
       }
 
-      if (event.data?.type === "dyad-component-selected") {
+      if (event.data?.type === "code-fighter-component-selected") {
         console.log("Component picked:", event.data);
 
         // Parse the single selected component
         const component = event.data.component
           ? parseComponentSelection({
-              type: "dyad-component-selected",
+              type: "code-fighter-component-selected",
               id: event.data.component.id,
               name: event.data.component.name,
             })
@@ -251,7 +251,7 @@ export const PreviewIframe = ({ loading }: { loading: boolean }) => {
         return;
       }
 
-      if (event.data?.type === "dyad-component-deselected") {
+      if (event.data?.type === "code-fighter-component-deselected") {
         const componentId = event.data.componentId;
         if (componentId) {
           setSelectedComponentsPreview((prev) =>
@@ -372,8 +372,8 @@ export const PreviewIframe = ({ loading }: { loading: boolean }) => {
       iframeRef.current.contentWindow.postMessage(
         {
           type: newIsPicking
-            ? "activate-dyad-component-selector"
-            : "deactivate-dyad-component-selector",
+            ? "activate-code-fighter-component-selector"
+            : "deactivate-code-fighter-component-selector",
         },
         "*",
       );
@@ -745,7 +745,7 @@ export const PreviewIframe = ({ loading }: { loading: boolean }) => {
 function parseComponentSelection(data: any): ComponentSelection | null {
   if (
     !data ||
-    data.type !== "dyad-component-selected" ||
+    data.type !== "code-fighter-component-selected" ||
     typeof data.id !== "string" ||
     typeof data.name !== "string"
   ) {

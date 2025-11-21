@@ -44,7 +44,7 @@ You need to configure at least one AI provider API key to use Code Fighter:
 
 ## Based on Dyad
 
-Code Fighter is a derivative work based on [Dyad](https://github.com/dyad-sh/dyad), an open-source project by Will Chen and the Dyad team.
+Code Fighter is a derivative work based on [Dyad](https://github.com/code-fighter-sh/dyad), an open-source project by Will Chen and the Code Fighter team.
 
 ### Changes from Original
 
@@ -58,5 +58,5 @@ Code Fighter is a derivative work based on [Dyad](https://github.com/dyad-sh/dya
 
 Licensed under the Apache License, Version 2.0. See [LICENSE](./LICENSE) for details.
 
-Original work Copyright 2025 Dyad Tech, Inc.
+Original work Copyright 2025 Code Fighter Tech, Inc.
 Modifications Copyright 2025 Code Fighter Contributors.

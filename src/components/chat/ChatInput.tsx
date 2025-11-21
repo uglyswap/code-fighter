@@ -163,7 +163,7 @@ export function ChatInput({ chatId }: { chatId?: number }) {
     // Clear overlays in the preview iframe
     if (previewIframeRef?.contentWindow) {
       previewIframeRef.contentWindow.postMessage(
-        { type: "clear-dyad-component-overlays" },
+        { type: "clear-code-fighter-component-overlays" },
         "*",
       );
     }
@@ -262,7 +262,7 @@ export function ChatInput({ chatId }: { chatId?: number }) {
         <ChatErrorBox
           onDismiss={dismissError}
           error={error}
-          isDyadProEnabled={settings.enableDyadPro ?? false}
+          isCodeFighterProEnabled={settings.enableCodeFighterPro ?? false}
         />
       )}
       {/* Display loading or error state for proposal */}
@@ -323,7 +323,7 @@ export function ChatInput({ chatId }: { chatId?: number }) {
               onChange={setInputValue}
               onSubmit={handleSubmit}
               onPaste={handlePaste}
-              placeholder="Ask Dyad to build..."
+              placeholder="Ask Code Fighter to build..."
               excludeCurrentApp={true}
             />
 
@@ -484,7 +484,7 @@ function WriteCodeProperlyButton() {
       return;
     }
     streamMessage({
-      prompt: `Write the code in the previous message in the correct format using \`<dyad-write>\` tags!`,
+      prompt: `Write the code in the previous message in the correct format using \`<code-fighter-write>\` tags!`,
       chatId,
       redo: false,
     });

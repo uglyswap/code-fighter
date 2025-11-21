@@ -144,7 +144,7 @@ export interface SystemDebugInfo {
   telemetryId: string;
   telemetryConsent: string;
   telemetryUrl: string;
-  dyadVersion: string;
+  code-fighterVersion: string;
   platform: string;
   architecture: string;
   logs: string;

@@ -22,18 +22,18 @@ interface ProviderSettingsHeaderProps {
   isLoading: boolean;
   hasFreeTier?: boolean;
   providerWebsiteUrl?: string;
-  isDyad: boolean;
+  isCodeFighter: boolean;
   onBackClick: () => void;
 }
 
 function getKeyButtonText({
   isConfigured,
-  isDyad,
+  isCodeFighter,
 }: {
   isConfigured: boolean;
-  isDyad: boolean;
+  isCodeFighter: boolean;
 }) {
-  if (isDyad) {
+  if (isCodeFighter) {
     return isConfigured
       ? "Manage Code Fighter Pro Subscription"
       : "Setup Code Fighter Pro Subscription";
@@ -47,7 +47,7 @@ export function ProviderSettingsHeader({
   isLoading,
   hasFreeTier,
   providerWebsiteUrl,
-  isDyad,
+  isCodeFighter,
   onBackClick,
 }: ProviderSettingsHeaderProps) {
   const handleGetApiKeyClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -63,7 +63,7 @@ export function ProviderSettingsHeader({
       className="mb-4 cursor-pointer py-5 w-full ring-4 ring-primary/60 shadow-lg shadow-primary/30 border-primary/60"
     >
       <KeyRound className="mr-2 h-4 w-4" />
-      {getKeyButtonText({ isConfigured, isDyad })}
+      {getKeyButtonText({ isConfigured, isCodeFighter })}
       <ExternalLink className="ml-2 h-4 w-4" />
     </Button>
   );
